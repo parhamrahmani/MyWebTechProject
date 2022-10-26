@@ -14,6 +14,6 @@ jobs:
           distribution: "adopt"
           java-version: 16
       - name: clean build
-        run: ./gradlew clean test --info --stacktrace
-        - name: Make gradlew executable
-         run: chmod +x ./gradlew
+        run: chmod +x ./gradlew clean test --info --stacktrace
+       # - name: Make gradlew executable
+        # run: chmod +x ./gradlew
