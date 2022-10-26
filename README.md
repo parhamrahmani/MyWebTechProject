@@ -32,3 +32,4 @@ There should also be an option to specify the number/size/weight of products and
 to write a simple note for each product and save it, for example, the user can
 the user to write a note that this product can be found only in Edeka.
 ------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------

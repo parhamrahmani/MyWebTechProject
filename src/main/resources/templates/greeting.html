@@ -2,9 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <link th:href = "@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
-<body>
-<p th:text="'Hello, ' + ${name} + '!'" />
+<body style="background-color:#131417">
+<p style="background-color:#292929;color:#308D46;font-size:45px;text-align: center;" th:text="'Hello, ' + ${name} + '!'" />
 </body>
 </html>
