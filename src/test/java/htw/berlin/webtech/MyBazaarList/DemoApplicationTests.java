@@ -1,4 +1,4 @@
-package htw.berlin.webtech.demo;
+package htw.berlin.webtech.MyBazaarList;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
