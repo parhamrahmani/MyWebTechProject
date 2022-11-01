@@ -4,9 +4,12 @@ public class Product {
     private long id;
     private String productName;
     private String brand;
-    //private Category category;
+   /* private Category category;
+    enum Category{
 
-    public Product(long id, String productName, String brand) { //Category category
+    }*/
+
+    public Product(long id, String productName, String brand) {
         this.id = id;
         this.productName = productName;
         this.brand = brand;
