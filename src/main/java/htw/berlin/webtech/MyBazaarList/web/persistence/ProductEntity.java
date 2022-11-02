@@ -20,7 +20,7 @@ public class ProductEntity {
     private String productName;
 
     @Column(name= "brand")
-    private String brand;
+    private String brand ;
 
 
 
