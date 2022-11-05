@@ -1,4 +1,4 @@
-package htw.berlin.webtech.MyBazaarList.web.persistence;
+package htw.berlin.webtech.MyBazaarList.persistence;
 
 import javax.persistence.*;
 
