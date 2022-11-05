@@ -5,10 +5,11 @@ import javax.persistence.*;
 @Entity(name = "products")
 public class ProductEntity {
     protected ProductEntity() {}
-    public ProductEntity(long id, String productName, String brand) {
-        this.id = id;
+    public ProductEntity(String productName, String brand, String category) {
+
         this.productName = productName;
         this.brand = brand;
+        this.category = category;
     }
 
     @Id
@@ -21,6 +22,9 @@ public class ProductEntity {
 
     @Column(name= "brand")
     private String brand ;
+    @Column(name = "category")
+    private  String category;
+
 
 
 
@@ -35,6 +39,14 @@ public class ProductEntity {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getBrand() {
