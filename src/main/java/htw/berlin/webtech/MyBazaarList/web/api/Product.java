@@ -1,11 +1,11 @@
 package htw.berlin.webtech.MyBazaarList.web.api;
 
-import jdk.jfr.Category;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author Parham Rahmani 580200
+ */
 public class Product {
     private long id;
     private String productName;
@@ -14,10 +14,16 @@ public class Product {
             "Vegetables" , "Fruits" , "Bread/Bakery" , "Breakfast"
             ,"Dairy", "Canned/Jarred Goods" , "Dry/Baking Goods" ,
             "Frozen Foods", "Meat" , "Cleaning Goods"
-            ,"Paper Goods" , "Personal Care" ,  "Other");
+            ,"Paper Goods" , "Personal Care" ,"Snacks",  "Other","Oil","Spices");
     String category;
 
-
+    /**
+     *
+     * @param id the id of product
+     * @param productName name of the product
+     * @param brand brand of the product
+     * @param category category of the product
+     */
     public Product(long id, String productName, String brand, String category) {
         this.id = id;
         this.productName = productName;
@@ -62,7 +68,4 @@ public class Product {
     {
         categories.add(category);
     }
-  /* public List<String> getAllCategories(){
-        return categories;
-    }*/
 }
