@@ -1,9 +1,12 @@
 package htw.berlin.webtech.MyBazaarList.persistence;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 @Entity(name = "products")
 public class ProductEntity {
+
     protected ProductEntity() {}
     public ProductEntity(String productName, String brand, String category) {
 

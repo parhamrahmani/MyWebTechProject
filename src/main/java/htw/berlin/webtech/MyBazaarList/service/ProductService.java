@@ -3,6 +3,7 @@ import htw.berlin.webtech.MyBazaarList.persistence.ProductEntity;
 import htw.berlin.webtech.MyBazaarList.persistence.ProductRepository;
 import htw.berlin.webtech.MyBazaarList.web.api.Product;
 import htw.berlin.webtech.MyBazaarList.web.api.ProductManipulationRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;

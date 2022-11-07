@@ -3,9 +3,7 @@ package htw.berlin.webtech.MyBazaarList.web.api;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * @author Parham Rahmani 580200
- */
+
 public class Product {
     private long id;
     private String productName;
