@@ -1,5 +1,7 @@
 package htw.berlin.webtech.MyBazaarList.web.api;
 
+import htw.berlin.webtech.MyBazaarList.persistence.Categories;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,21 +15,13 @@ public class Product {
             ,"Dairy", "Canned/Jarred Goods" , "Dry/Baking Goods" ,
             "Frozen Foods", "Meat" , "Cleaning Goods"
             ,"Paper Goods" , "Personal Care" ,"Snacks",  "Other","Oil","Spices");
-    String category;
+    Categories category;
 
-    /**
-     *
-     * @param id the id of product
-     * @param productName name of the product
-     * @param brand brand of the product
-     * @param category category of the product
-     */
-    public Product(long id, String productName, String brand, String category) {
+    public Product(long id, String productName, String brand, Categories category) {
         this.id = id;
         this.productName = productName;
         this.brand = brand;
-        if(this.categories.contains(category)) this.category = category;
-        else this.category = "";
+         this.category = category;
 
     }
 
@@ -35,11 +29,11 @@ public class Product {
         return id;
     }
 
-    public String getCategory() {
+    public Categories getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Categories category) {
         this.category = category;
     }
 

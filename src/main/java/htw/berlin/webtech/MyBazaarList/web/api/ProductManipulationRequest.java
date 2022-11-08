@@ -1,28 +1,24 @@
 package htw.berlin.webtech.MyBazaarList.web.api;
 
+import htw.berlin.webtech.MyBazaarList.persistence.Categories;
+
 public class ProductManipulationRequest {
     private String productName;
     private String brand;
-    private String category;
+    private Categories category;
 
-    /**
-     *
-     * @param productName the new name/existing name that is going to be changed/overwritten in the database
-     * @param brand the new name/existing brand that is going to be changed/overwritten in the database
-     * @param category the new name/existing category that is going to be changed/overwritten in the database
-     */
-    public ProductManipulationRequest(String productName, String brand, String category)
+    public ProductManipulationRequest(String productName, String brand, Categories category)
     {
         this.productName = productName;
         this.brand = brand;
         this.category = category;
     }
 
-    public String getCategory() {
+    public Categories getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Categories category) {
         this.category = category;
     }
 

@@ -2,6 +2,7 @@ package htw.berlin.webtech.MyBazaarList.web;
 
 import htw.berlin.webtech.MyBazaarList.MyBazaarListApplication;
 
+import htw.berlin.webtech.MyBazaarList.persistence.Categories;
 import htw.berlin.webtech.MyBazaarList.persistence.ProductEntity;
 import htw.berlin.webtech.MyBazaarList.persistence.ProductRepository;
 import htw.berlin.webtech.MyBazaarList.service.ProductService;
@@ -55,7 +56,7 @@ public class ProductRestControllerTest {
     @DisplayName("Testing the fetch by id method ")
     void testFetchProductById() throws Exception {
 
-        var product = new Product(2L,"Remoulade","Kunella","Oil");
+        var product = new Product(2L,"Remoulade","Kunella", Categories.Condiment);
         when(productService.findById(2L)).thenReturn(product);
         this.mockMvc.perform(get("/api/v1/products/2"))
                 .andExpect(status().isOk())
