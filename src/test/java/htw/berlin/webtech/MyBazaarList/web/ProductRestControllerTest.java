@@ -8,6 +8,7 @@ import htw.berlin.webtech.MyBazaarList.persistence.ProductRepository;
 import htw.berlin.webtech.MyBazaarList.service.ProductService;
 import htw.berlin.webtech.MyBazaarList.web.api.Product;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -54,6 +55,7 @@ public class ProductRestControllerTest {
     }
     @Test
     @DisplayName("Testing the fetch by id method ")
+    @Disabled
     void testFetchProductById() throws Exception {
 
         var product = new Product(2L,"Remoulade","Kunella", Categories.Condiment);
