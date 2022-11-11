@@ -13,4 +13,4 @@ public class MyBazaarListApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(MyBazaarListApplication.class, args);
-} }
+	} }
