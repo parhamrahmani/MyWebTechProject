@@ -16,6 +16,8 @@ package htw.berlin.webtech.MyBazaarList.persistence;
         Condiment,
         Dairy ,
         Health,
+        Coffee,
+        Tea,
         Other,
     }
 
