@@ -1,9 +1,12 @@
 package htw.berlin.webtech.MyBazaarList.web.api;
 
+import htw.berlin.webtech.MyBazaarList.persistence.ShoppingListEntity;
+
 public class ProductManipulationRequest {
     private String productName;
     private String brand;
     private String category;
+    private ShoppingListEntity shoppingList;
 
     /**
      *
@@ -11,11 +14,20 @@ public class ProductManipulationRequest {
      * @param brand the new name/existing brand that is going to be changed/overwritten in the database
      * @param category the new name/existing category that is going to be changed/overwritten in the database
      */
-    public ProductManipulationRequest(String productName, String brand, String category)
+    public ProductManipulationRequest(String productName, String brand, String category, ShoppingListEntity shoppingList)
     {
         this.productName = productName;
         this.brand = brand;
         this.category = category;
+        this.shoppingList = shoppingList;
+    }
+
+    public ShoppingListEntity getShoppingList() {
+        return shoppingList;
+    }
+
+    public void setShoppingList(ShoppingListEntity shoppingList) {
+        this.shoppingList = shoppingList;
     }
 
     public String getCategory() {

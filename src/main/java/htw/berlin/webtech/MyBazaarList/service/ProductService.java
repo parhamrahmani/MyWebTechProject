@@ -26,7 +26,7 @@ public class ProductService {
     public Product postProduct(ProductManipulationRequest request)
     {
         var category = Category.valueOf(request.getCategory());
-        var productEntity = new ProductEntity(request.getProductName(),request.getBrand(),category);
+        var productEntity = new ProductEntity(request.getProductName(),request.getBrand(),category,request.getShoppingList());
         productEntity = productRepository.save(productEntity);
 
         return transformEntity(productEntity);
@@ -44,7 +44,8 @@ public class ProductService {
                 productEntity.getId(),
                 productEntity.getProductName(),
                 productEntity.getBrand(),
-                category
+                category,
+                productEntity.getShoppingList()
         );
     }
 

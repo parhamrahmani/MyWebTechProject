@@ -11,11 +11,20 @@ public class ProductEntity {
 
 
 
-    public ProductEntity(String productName, String brand, Category category) {
+    public ProductEntity(String productName, String brand, Category category , ShoppingListEntity shoppingList) {
 
         this.productName = productName;
         this.brand = brand;
         this.category = category;
+        this.shoppingList = shoppingList;
+    }
+
+    public ShoppingListEntity getShoppingList() {
+        return shoppingList;
+    }
+
+    public void setShoppingList(ShoppingListEntity shoppingList) {
+        this.shoppingList = shoppingList;
     }
 
     @Id
@@ -32,7 +41,9 @@ public class ProductEntity {
     @Column(name = "category")
     @Enumerated(value = EnumType.STRING)
     private  Category category;
-
+    @ManyToOne(cascade = CascadeType.MERGE, targetEntity = ShoppingListEntity.class)
+    //@JoinColumn(name = "list_id" , referencedColumnName = "list_id")
+    private ShoppingListEntity shoppingList;
 
 
 

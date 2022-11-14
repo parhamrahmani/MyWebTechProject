@@ -1,17 +1,29 @@
 package htw.berlin.webtech.MyBazaarList.persistence;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity (name = "shoppingLists")
 public class ShoppingListEntity {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name = "list id" ,nullable = false)
+    @Column (name = "list_id" ,nullable = false)
     private long listId;
-    @Column (name = "List Name")
+    @Column (name = "List_name")
     private String listName;
     @Column (name = "description")
     private String description;
+    @OneToMany (mappedBy = "shoppingList" , fetch = FetchType.EAGER)
+    private List<ProductEntity> productEntityList = new ArrayList<>();
+
+    public List<ProductEntity> getProductEntityList() {
+        return productEntityList;
+    }
+
+    public void setProductEntityList(List<ProductEntity> productEntityList) {
+        this.productEntityList = productEntityList;
+    }
 
     public ShoppingListEntity(String listName, String description) {
         this.listName = listName;
