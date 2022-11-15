@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
-
+@RestController
 public class ShoppingListRestController {
     private final ShoppingListService service;
-    private final String path = "/api/v1/shoppinhLists";
+    private final String path = "/api/v1/shoppingLists";
 
     public ShoppingListRestController(ShoppingListService service) {
         this.service = service;
@@ -51,8 +51,6 @@ public class ShoppingListRestController {
     {
         boolean deleteSuccessful = service.deleteById(id);
         return deleteSuccessful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
-
-
     }
 
 }

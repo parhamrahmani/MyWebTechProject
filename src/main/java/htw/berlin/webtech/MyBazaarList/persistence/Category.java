@@ -7,17 +7,22 @@ package htw.berlin.webtech.MyBazaarList.persistence;
         Vegetables,
         Baking,
         Beverage,
-        Bread ,
-        Breakfast ,
-        Dry_Goods,
+        Bread,
+        Breakfast,
+        Dry,
         Sweets,
-        Snack ,
+        Snack,
         Canned_Goods,
-        Condiment,
-        Dairy ,
+        Foodstuff, // like rice and pasta
+        Condiment, //like sauces and spices or salt
+        Dairy,
         Health,
         Coffee,
         Tea,
+        Frozen,
+        Home,
+        Pet,
+        Baby,
         Other,
     }
 

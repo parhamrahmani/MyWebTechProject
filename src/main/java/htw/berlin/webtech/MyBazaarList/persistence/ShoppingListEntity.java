@@ -6,52 +6,41 @@ import java.util.List;
 
 @Entity (name = "shoppingLists")
 public class ShoppingListEntity {
+
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name = "list_id" ,nullable = false)
+    @Column (name = "id" ,nullable = false)
     private long listId;
+
     @Column (name = "List_name")
     private String listName;
+
     @Column (name = "description")
     private String description;
+
     @OneToMany (mappedBy = "shoppingList" , fetch = FetchType.EAGER)
     private List<ProductEntity> productEntityList = new ArrayList<>();
 
     public List<ProductEntity> getProductEntityList() {
         return productEntityList;
     }
-
-    public void setProductEntityList(List<ProductEntity> productEntityList) {
-        this.productEntityList = productEntityList;
-    }
-
     public ShoppingListEntity(String listName, String description) {
         this.listName = listName;
         this.description = description;
     }
-
     protected ShoppingListEntity() {}
-
     public long getListId() {
         return listId;
     }
-
-    public void setListId(long listId) {
-        this.listId = listId;
-    }
-
     public String getListName() {
         return listName;
     }
-
     public void setListName(String listName) {
         this.listName = listName;
     }
-
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }

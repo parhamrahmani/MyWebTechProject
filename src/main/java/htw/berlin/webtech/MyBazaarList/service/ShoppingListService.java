@@ -1,11 +1,8 @@
 package htw.berlin.webtech.MyBazaarList.service;
 
-import htw.berlin.webtech.MyBazaarList.persistence.Category;
 import htw.berlin.webtech.MyBazaarList.persistence.ProductEntity;
 import htw.berlin.webtech.MyBazaarList.persistence.ShoppingListEntity;
 import htw.berlin.webtech.MyBazaarList.persistence.ShoppingListRepository;
-import htw.berlin.webtech.MyBazaarList.web.api.Product;
-import htw.berlin.webtech.MyBazaarList.web.api.ProductManipulationRequest;
 import htw.berlin.webtech.MyBazaarList.web.api.ShoppingList;
 import htw.berlin.webtech.MyBazaarList.web.api.ShoppingListManipulationRequest;
 import org.springframework.stereotype.Service;
@@ -24,23 +21,21 @@ public class ShoppingListService {
     }
   public ShoppingList  transformEntity(ShoppingListEntity shoppingListEntity)
   {
-      //var category = shoppingListEntity.getListName()
       var productIds = shoppingListEntity.getProductEntityList().stream().map(ProductEntity::getId).collect(Collectors.toList());
 
-      ShoppingList shoppingList = new ShoppingList(
+      return new ShoppingList(
               shoppingListEntity.getListId(),
               shoppingListEntity.getListName(),
               shoppingListEntity.getDescription(),
               productIds
 
       );
-      return shoppingList;
   }
     public List<ShoppingList> findAll()
     {
         List<ShoppingListEntity> shoppingListEntities = shoppingListRepository.findAll();
         // transfer product entity into product
-        return shoppingListEntities.stream().map(this::transformEntity)
+        return shoppingListEntities.stream().map(listTransformer::listTransformer)
                 .collect(Collectors.toList());
     }
     public ShoppingList postShoppingList(ShoppingListManipulationRequest request)

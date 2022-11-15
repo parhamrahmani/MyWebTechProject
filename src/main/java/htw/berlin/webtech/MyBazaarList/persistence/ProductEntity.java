@@ -1,16 +1,10 @@
 package htw.berlin.webtech.MyBazaarList.persistence;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
 
 @Entity(name = "products")
 public class ProductEntity {
-
     protected ProductEntity() {}
-
-
-
     public ProductEntity(String productName, String brand, Category category , ShoppingListEntity shoppingList) {
 
         this.productName = productName;
@@ -19,13 +13,8 @@ public class ProductEntity {
         this.shoppingList = shoppingList;
     }
 
-    public ShoppingListEntity getShoppingList() {
-        return shoppingList;
-    }
-
-    public void setShoppingList(ShoppingListEntity shoppingList) {
-        this.shoppingList = shoppingList;
-    }
+    public ShoppingListEntity getShoppingList() {return shoppingList;}
+    public void setShoppingList(ShoppingListEntity shoppingList) {this.shoppingList = shoppingList;}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,34 +30,25 @@ public class ProductEntity {
     @Column(name = "category")
     @Enumerated(value = EnumType.STRING)
     private  Category category;
+
     @ManyToOne(cascade = CascadeType.MERGE, targetEntity = ShoppingListEntity.class)
-    //@JoinColumn(name = "list_id" , referencedColumnName = "list_id")
     private ShoppingListEntity shoppingList;
-
-
 
     public long getId() {
         return id;
     }
-
-
     public String getProductName() {
         return productName;
     }
-
     public void setProductName(String productName) {
         this.productName = productName;
     }
-
     public Category getCategory() {
         return category;
     }
-
-
     public String getBrand() {
         return brand;
     }
-
     public void setBrand(String brand) {
         this.brand = brand;
     }
