@@ -1,5 +1,7 @@
 package htw.berlin.webtech.MyBazaarList.persistence;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +20,9 @@ public class ShoppingListEntity {
     @Column (name = "description")
     private String description;
 
+    @JsonIgnore
     @OneToMany (mappedBy = "shoppingList" , fetch = FetchType.EAGER)
-    private List<ProductEntity> productEntityList = new ArrayList<>();
+    private final List<ProductEntity> productEntityList = new ArrayList<>();
 
     public List<ProductEntity> getProductEntityList() {
         return productEntityList;

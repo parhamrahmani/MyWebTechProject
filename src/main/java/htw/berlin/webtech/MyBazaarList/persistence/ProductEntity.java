@@ -1,5 +1,7 @@
 package htw.berlin.webtech.MyBazaarList.persistence;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity(name = "products")
@@ -31,6 +33,7 @@ public class ProductEntity {
     @Enumerated(value = EnumType.STRING)
     private  Category category;
 
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.MERGE, targetEntity = ShoppingListEntity.class)
     private ShoppingListEntity shoppingList;
 
