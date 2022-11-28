@@ -8,6 +8,7 @@ public class ShoppingListManipulationRequest {
         this.listName = listName;
         this.description = description;
     }
+    public ShoppingListManipulationRequest() {}
     public String getListName() {return listName;}
     public void setListName(String listName) {this.listName = listName;}
     public String getDescription() {return description;}

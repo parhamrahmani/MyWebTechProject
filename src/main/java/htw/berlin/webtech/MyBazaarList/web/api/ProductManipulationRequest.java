@@ -7,6 +7,9 @@ public class ProductManipulationRequest {
     private String brand;
     private String category;
     private ShoppingListEntity shoppingList;
+    public ProductManipulationRequest() {
+
+    }
 
     public ProductManipulationRequest(String productName, String brand, String category, ShoppingListEntity shoppingList)
     {   this.productName = productName;
