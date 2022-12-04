@@ -12,7 +12,7 @@ package htw.berlin.webtech.MyBazaarList.persistence;
         Dry,
         Sweets,
         Snack,
-        Canned_Goods,
+        Canned,
         Foodstuff, // like rice and pasta
         Condiment, //like sauces and spices or salt
         Dairy,
