@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 @RestController
 public class ShoppingListRestController {
     private final ShoppingListService service;
     private final String path = "/api/v1/shoppingLists";
+    private List<ShoppingList> shoppingLists= new ArrayList<>();
 
     public ShoppingListRestController(ShoppingListService service) {
         this.service = service;
@@ -28,6 +30,16 @@ public class ShoppingListRestController {
     {   var shoppingList = service.findById(id);
         return shoppingList!= null? ResponseEntity.ok(shoppingList) : ResponseEntity.notFound().build();
     }
+
+    @GetMapping(path= path+"/getTheLatestList")
+    public ResponseEntity<ShoppingList> fetchTheLatest()
+    {
+       int lastPosition = service.findAll().size()-1;
+       var shoppingList = service.findAll().get(lastPosition);
+       return shoppingList!= null? ResponseEntity.ok(shoppingList) : ResponseEntity.notFound().build();
+       }
+
+
 
     @PostMapping(path=path)
     public ResponseEntity<Void> post(@RequestBody ShoppingListManipulationRequest request)
