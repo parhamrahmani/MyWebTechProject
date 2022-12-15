@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity(name = "products")
 public class ProductEntity {
     protected ProductEntity() {}
-    public ProductEntity(String productName, String brand, Category category , ShoppingListEntity shoppingList) {
+    public ProductEntity(String productName, String brand, String category , ShoppingListEntity shoppingList) {
 
         this.productName = productName;
         this.brand = brand;
@@ -16,7 +16,6 @@ public class ProductEntity {
     }
 
     public ShoppingListEntity getShoppingList() {return shoppingList;}
-    public void setShoppingList(ShoppingListEntity shoppingList) {this.shoppingList = shoppingList;}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,8 +29,7 @@ public class ProductEntity {
     private String brand ;
 
     @Column(name = "category")
-    @Enumerated(value = EnumType.STRING)
-    private  Category category;
+    private  String category;
 
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.MERGE, targetEntity = ShoppingListEntity.class)
@@ -46,7 +44,7 @@ public class ProductEntity {
     public void setProductName(String productName) {
         this.productName = productName;
     }
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
     public String getBrand() {
@@ -54,8 +52,5 @@ public class ProductEntity {
     }
     public void setBrand(String brand) {
         this.brand = brand;
-    }
-    public void setCategory(Category category) {
-        this.category = category;
     }
 }

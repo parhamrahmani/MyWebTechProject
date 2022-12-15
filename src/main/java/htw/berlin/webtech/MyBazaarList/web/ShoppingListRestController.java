@@ -3,6 +3,7 @@ package htw.berlin.webtech.MyBazaarList.web;
 import htw.berlin.webtech.MyBazaarList.service.ShoppingListService;
 import htw.berlin.webtech.MyBazaarList.web.api.ShoppingList;
 import htw.berlin.webtech.MyBazaarList.web.api.ShoppingListManipulationRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,6 +39,15 @@ public class ShoppingListRestController {
        var shoppingList = service.findAll().get(lastPosition);
        return shoppingList!= null? ResponseEntity.ok(shoppingList) : ResponseEntity.notFound().build();
        }
+    @GetMapping(path= path+"/getTheLatestListId")
+    public ResponseEntity<Long> fetchTheLatestId()
+    {
+        int lastPosition = service.findAll().size()-1;
+        var shoppingListId = service.findAll().get(lastPosition).getListId();
+        return new ResponseEntity<>(
+                shoppingListId, HttpStatus.OK
+        );
+    }
 
 
 
@@ -64,5 +74,4 @@ public class ShoppingListRestController {
         boolean deleteSuccessful = service.deleteById(id);
         return deleteSuccessful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
-
 }

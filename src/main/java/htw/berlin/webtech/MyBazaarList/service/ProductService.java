@@ -1,6 +1,5 @@
 package htw.berlin.webtech.MyBazaarList.service;
 
-import htw.berlin.webtech.MyBazaarList.persistence.Category;
 import htw.berlin.webtech.MyBazaarList.persistence.ProductEntity;
 import htw.berlin.webtech.MyBazaarList.persistence.ProductRepository;
 import htw.berlin.webtech.MyBazaarList.web.api.Product;
@@ -25,8 +24,7 @@ public class ProductService {
     }
     public Product postProduct(ProductManipulationRequest request)
     {
-        var category = Category.valueOf(request.getCategory());
-        var productEntity = new ProductEntity(request.getProductName(),request.getBrand(),category,request.getShoppingList());
+        var productEntity = new ProductEntity(request.getProductName(),request.getBrand(),request.getCategory(),request.getShoppingList());
         productEntity = productRepository.save(productEntity);
 
         return transformEntity(productEntity);
@@ -34,13 +32,13 @@ public class ProductService {
 
     private Product transformEntity(ProductEntity productEntity)
     {
-        var category = productEntity.getCategory() != null ? productEntity.getCategory().name() : Category.Other.name();
+        //var category = productEntity.getCategory() != null ? productEntity.getCategory() : Category.Other.name();
 
         return  new Product(
                 productEntity.getId(),
                 productEntity.getProductName(),
                 productEntity.getBrand(),
-                category,
+                productEntity.getCategory(),
                 productEntity.getShoppingList()
         );
     }
@@ -51,13 +49,11 @@ public class ProductService {
     }
 
     public Product update(Long id, ProductManipulationRequest request) {
-        var category = Category.valueOf(request.getCategory());
         var productEntityOptional = productRepository.findById(id);
         if (productEntityOptional.isEmpty()) return null;
         var productEntity = productEntityOptional.get();
         productEntity.setProductName(request.getProductName());
         productEntity.setBrand(request.getBrand());
-        productEntity.setCategory(category);
         productEntity = productRepository.save(productEntity);
         return transformEntity(productEntity);
 
