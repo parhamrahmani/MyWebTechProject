@@ -54,6 +54,7 @@ public class ProductService {
         var productEntity = productEntityOptional.get();
         productEntity.setProductName(request.getProductName());
         productEntity.setBrand(request.getBrand());
+        productEntity.setCategory(request.getCategory());
         productEntity = productRepository.save(productEntity);
         return transformEntity(productEntity);
 

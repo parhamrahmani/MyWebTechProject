@@ -1,12 +1,15 @@
 package htw.berlin.webtech.MyBazaarList.web;
 
+import htw.berlin.webtech.MyBazaarList.service.ProductService;
 import htw.berlin.webtech.MyBazaarList.service.ShoppingListService;
+import htw.berlin.webtech.MyBazaarList.web.api.Product;
 import htw.berlin.webtech.MyBazaarList.web.api.ShoppingList;
 import htw.berlin.webtech.MyBazaarList.web.api.ShoppingListManipulationRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.event.PaintEvent;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -14,11 +17,13 @@ import java.util.List;
 @RestController
 public class ShoppingListRestController {
     private final ShoppingListService service;
+    private final ProductService productService;
     private final String path = "/api/v1/shoppingLists";
     private List<ShoppingList> shoppingLists= new ArrayList<>();
 
-    public ShoppingListRestController(ShoppingListService service) {
+    public ShoppingListRestController(ShoppingListService service, ProductService productService) {
         this.service = service;
+        this.productService = productService;
     }
 
     @GetMapping(path=path)
@@ -47,6 +52,16 @@ public class ShoppingListRestController {
         return new ResponseEntity<>(
                 shoppingListId, HttpStatus.OK
         );
+    }
+    @GetMapping(path = "/api/v1/shoppingLists/getProductsByShoppingListId"+"/{id}")
+    public ResponseEntity<List<Product>> fetchProductsByShoppingListId(@PathVariable Long id){
+        ShoppingList fetchedShoppingList = service.findById(id);
+        List<Long> productIdsFromFetchedShoppingList = fetchedShoppingList.getProductIds();
+        List<Product> productList = new ArrayList<>();
+        for (Long productId : productIdsFromFetchedShoppingList) productList.add(productService.findById(productId));
+return new ResponseEntity<>(
+        productList, HttpStatus.OK
+);
     }
 
 

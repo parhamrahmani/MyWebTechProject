@@ -7,6 +7,11 @@ import javax.persistence.*;
 @Entity(name = "products")
 public class ProductEntity {
     protected ProductEntity() {}
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     public ProductEntity(String productName, String brand, String category , ShoppingListEntity shoppingList) {
 
         this.productName = productName;
