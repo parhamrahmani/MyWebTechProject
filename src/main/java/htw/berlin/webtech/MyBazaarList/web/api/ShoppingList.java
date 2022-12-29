@@ -31,4 +31,8 @@ public class ShoppingList {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public void setListId(long expectedId) {
+        this.listId = expectedId;
+    }
 }
