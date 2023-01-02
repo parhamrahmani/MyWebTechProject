@@ -2,6 +2,13 @@ package htw.berlin.webtech.MyBazaarList.web.api;
 
 import java.util.List;
 
+/**
+ * The ShoppingList class represents a list of products with a name, description, and a list of product ids.
+ *
+ * @author Parham Rahmani 580200
+ *
+ */
+
 public class ShoppingList {
     private long listId;
     private String listName;

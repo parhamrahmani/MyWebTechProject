@@ -3,6 +3,14 @@ package htw.berlin.webtech.MyBazaarList.web.api;
 import htw.berlin.webtech.MyBazaarList.persistence.ShoppingListEntity;
 
 
+/**
+  * The Product class represents a product with a name, brand, category, and a shopping list it belongs to.
+  *
+  * @author Parham Rahmani 580200
+  *
+ */
+
+
 public class Product {
     private long id;
     private String productName;
