@@ -2,6 +2,17 @@ package htw.berlin.webtech.MyBazaarList.web.api;
 
 import htw.berlin.webtech.MyBazaarList.persistence.ShoppingListEntity;
 
+/**
+ * @author Parham Rahmani 580200
+ *
+ * The ProductManipulationRequest class is used to represent a request to create or update a product. It has four fields:
+ *
+ * productName: a String representing the name of the product.
+ * brand: a String representing the brand of the product.
+ * category: a String representing the category of the product.
+ * shoppingList: a ShoppingListEntity object representing the shopping list to which the product belongs.
+ */
+
 public class ProductManipulationRequest {
     private String productName;
     private String brand;
