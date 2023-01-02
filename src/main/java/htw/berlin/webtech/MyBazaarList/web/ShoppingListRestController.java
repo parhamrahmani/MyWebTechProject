@@ -18,7 +18,7 @@ import java.util.List;
 public class ShoppingListRestController {
     private final ShoppingListService service;
     private final ProductService productService;
-    private final String path = "/api/v1/shoppingLists/";
+    private final String path = "/api/v1/shoppingLists";
     private List<ShoppingList> shoppingLists= new ArrayList<>();
 
     public ShoppingListRestController(ShoppingListService service, ProductService productService) {
@@ -85,8 +85,12 @@ return new ResponseEntity<>(
 
     @DeleteMapping(path = path + "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id)
-    {
+    {    ShoppingList fetchedShoppingList = service.findById(id);
+        List<Long> productIdsFromFetchedShoppingList = fetchedShoppingList.getProductIds();
+        for(Long productId : productIdsFromFetchedShoppingList) productService.deleteById(productId);
+        if(productIdsFromFetchedShoppingList.isEmpty()) {
         boolean deleteSuccessful = service.deleteById(id);
-        return deleteSuccessful? ResponseEntity.ok().build() : ResponseEntity.noContent().build();
+        return deleteSuccessful? ResponseEntity.ok().build() : ResponseEntity.noContent().build(); }
+        else return ResponseEntity.noContent().build();
     }
 }

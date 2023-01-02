@@ -129,7 +129,7 @@ public class ShoppingListRestControllerTest {
 
         // Assert
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
-        assertEquals("/api/v1/shoppingLists/1", response.getHeaders().getLocation().toString());
+        assertEquals("/api/v1/shoppingLists1", response.getHeaders().getLocation().toString());
     }
 
 

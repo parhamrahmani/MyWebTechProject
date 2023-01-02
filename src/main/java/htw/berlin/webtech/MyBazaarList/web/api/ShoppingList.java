@@ -14,25 +14,32 @@ public class ShoppingList {
         this.description = description;
         this.productIds = productIds;
     }
-    public List<Long> getProductIds() {return productIds;}
-    public void setProductIds(List<Long> productIds) {this.productIds = productIds;}
+
+    public List<Long> getProductIds() {
+        return productIds;
+    }
+
+    public void setProductIds(List<Long> productIds) {
+        this.productIds = productIds;
+    }
+
     public long getListId() {
         return listId;
     }
+
     public String getListName() {
         return listName;
     }
+
     public void setListName(String listName) {
         this.listName = listName;
     }
+
     public String getDescription() {
         return description;
     }
+
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void setListId(long expectedId) {
-        this.listId = expectedId;
     }
 }
