@@ -4,6 +4,8 @@ import htw.berlin.webtech.MyBazaarList.service.ProductService;
 import htw.berlin.webtech.MyBazaarList.service.ShoppingListService;
 import htw.berlin.webtech.MyBazaarList.web.api.Product;
 import htw.berlin.webtech.MyBazaarList.web.api.ProductManipulationRequest;
+import htw.berlin.webtech.MyBazaarList.web.api.ShoppingList;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.net.URI;
@@ -64,15 +66,16 @@ public class ProductRestController {
      * @return the response
      */
     @GetMapping(path+"/findProductsInLatestShoppingListId")
-    public ResponseEntity<List<Product>> fetchProductsByLatestShoppingList()
-    {   int lastPosition = service.findAll().size()-1;
-        var shoppingListId = service.findAll().get(lastPosition).getListId();
-        List<Product> allProducts = this.productService.findAll();
-        List<Product> productInThatList = new ArrayList<>();
-        for (Product product : allProducts) {
-            if(product.getShoppingList().getListId() == shoppingListId) productInThatList.add(product);
-        }
-        return ResponseEntity.ok(productInThatList);
+    public ResponseEntity<List<Product>> fetchProductsByLatestShoppingList(){
+        int lastPosition = service.findAll().size()-1;
+        var latestId = service.findAll().get(lastPosition).getListId();
+    ShoppingList fetchedShoppingList = service.findById(latestId);
+    List<Long> productIdsFromFetchedShoppingList = fetchedShoppingList.getProductIds();
+    List<Product> productList = new ArrayList<>();
+        for (Long productId : productIdsFromFetchedShoppingList) productList.add(productService.findById(productId));
+return new ResponseEntity<>(
+    productList, HttpStatus.OK
+);
 }
 
     /***
