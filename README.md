@@ -109,22 +109,30 @@ Gradle 6.4 oder höher
 Die folgenden Endpunkte sind für Einkaufslisten verfügbar:
 
 GET /api/v1/shoppingLists: Liefert eine Liste mit allen Einkaufslisten
+
 GET /api/v1/shoppingLists/{id}: Liefert die Einkaufsliste mit der angegebenen ID
+
 POST /api/v1/shoppingLists: Erzeugt eine neue Einkaufsliste mit den im Anfragetext angegebenen Informationen
+
 PUT /api/v1/shoppingLists/{id}: Aktualisiert die Einkaufsliste mit der angegebenen ID mit den in der Anfrage angegebenen
-Informationen
-Körper
+Informationen 
+
 DELETE /api/v1/shoppingLists/{id}: Löscht die Einkaufsliste mit der angegebenen ID
 
 
 Die folgenden Endpunkte sind für Produkte verfügbar:
 
 GET /api/v1/products: holt eine Liste aller Produkte
+
 GET /api/v1/products/{id}: ruft das Produkt mit der angegebenen ID ab
+
 GET /api/v1/products/findProductsInLatestShoppingListId: holt eine Liste der Produkte, die zur letzten
 Einkaufsliste gehören
+
 POST /api/v1/products: erstellt ein neues Produkt mit den im Anfragetext angegebenen Informationen
+
 PUT /api/v1/products/{id}: aktualisiert das Produkt mit der angegebenen ID mit den im Anfragetext angegebenen Informationen
+
 DELETE /api/v1/products/{id}: löscht das Produkt mit der angegebenen ID
 
 Um das Projekt vollständig mit dem Frontend zu betreiben, benötigen Sie auch den Code für das Frontend, 
