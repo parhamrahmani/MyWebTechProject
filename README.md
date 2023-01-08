@@ -38,21 +38,30 @@ Gradle 6.4 or above
 The following endpoints are available for shopping lists:
 
 GET /api/v1/shoppingLists: Returns a list of all shopping lists
+
 GET /api/v1/shoppingLists/{id}: Returns the shopping list with the given id
+
 POST /api/v1/shoppingLists: Creates a new shopping list with the information provided in the request body
+
 PUT /api/v1/shoppingLists/{id}: Updates the shopping list with the given id with the information provided in the request
 body
+
 DELETE /api/v1/shoppingLists/{id}: Deletes the shopping list with the given id
 
 
 The following endpoints are available for products:
 
 GET /api/v1/products: fetches a list of all products
+
 GET /api/v1/products/{id}: fetches the product with the given id
+
 GET /api/v1/products/findProductsInLatestShoppingListId: fetches a list of products that belong to the latest
 shopping list
+
 POST /api/v1/products: creates a new product with the information provided in the request body
+
 PUT /api/v1/products/{id}: updates the product with the given id with the information provided in the request body
+
 DELETE /api/v1/products/{id}: deletes the product with the given id
 
 In order to fully run the project with frontend you will also need the code to the frontend which is located in this 
